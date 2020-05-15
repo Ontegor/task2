@@ -1,0 +1,14 @@
+{
+  "name": "task2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ontegor <galimov.ruslan.m@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "jest": "^26.0.1"
+  }
+}
