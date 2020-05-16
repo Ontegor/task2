@@ -1,15 +1,15 @@
 class Bonds {
    constructor() {
-       this.cache = new Map();
+       this.cache = [];
    }
 
    setCache(key, data) {
-       this.cache.set(key, data);
+       this.cache[key] = data;
    }
    
    getCache(key) {
-       if (this.cache.has(key)) {
-           return this.cache.get(key);
+       if (this.cache[key] !== undefined) {
+           return this.cache[key];
        }
        
        return null;
@@ -24,12 +24,12 @@ class Bonds {
        const cache = this.getCache(cacheKey);
 
         if (cache) {
-            return cahe;
+            return cache;
         }
         
         // Здесь должен быть запрос к api
         const result = this.apiResponseData();
-
+        
         this.setCache(cacheKey, result);
         
         return result;

@@ -5,7 +5,7 @@ class getBonds {
   
         const cache = JSON.parse(localStorage.getItem(cacheKey));
 
-        if (cache && this.checkCasheTime(cache)) {
+        if (cache && this.checkCacheTime(cache)) {
             return this.getOriginalBonds(cache);
         }
         
@@ -24,7 +24,7 @@ class getBonds {
         return cache;
     }
 
-    checkCasheTime(cache) {
+    checkCacheTime(cache) {
         const timestamp = cache[cache.length - 1];
 
         if (typeof timestamp !== 'number') {
@@ -32,15 +32,6 @@ class getBonds {
         }
    
         return (new Date() - timestamp) < 5*60*1000;
-    }
-
-    convertArrayToObject = (array, inital) => {
-        return array.reduce((obj, item) => {
-            return {
-                ...obj,
-                [item['isin']]: item,
-            };
-        }, inital);
     }
 
     responseData = () => [{
@@ -56,10 +47,3 @@ class getBonds {
         data: {}
     }];
 }
-
-const bonds = new getBonds();
-
-bonds.getBondsData({
-    date: '20180121',
-    isins: ['MU000A0JU4L3', 'RU000A0JU4L3', 'XS0971721963']
-});
