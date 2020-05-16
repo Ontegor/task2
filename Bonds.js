@@ -15,16 +15,16 @@ class Bonds {
        return null;
    }
 
-   getChacheKey(args) {
+   getCacheKey(args) {
        return JSON.stringify(args);
    }
 
    getBondsData = (...args) => {
-       const cacheKey = this.getChacheKey(args);
+       const cacheKey = this.getCacheKey(...args);
        const cache = this.getCache(cacheKey);
 
         if (cache) {
-            return cashe;
+            return cahe;
         }
         
         // Здесь должен быть запрос к api
